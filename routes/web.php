@@ -3,8 +3,8 @@
 use App\Controllers\PriceController;
 use Illuminate\Support\Facades\Route;
 
-$menuController = new PriceController();
+$priceController = new PriceController();
 
-Route::get('menu', [$menuController, 'index']);
+Route::get('menu', [$priceController, 'index']);
 
-Route::post('menu/get-price', [$menuController, 'getPrice']);
+Route::post('menu/get-price', [$priceController, 'getPrice']);
