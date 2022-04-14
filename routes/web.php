@@ -1,9 +1,9 @@
 <?php
 
-use App\Controllers\MenuController;
+use App\Controllers\PriceController;
 use Illuminate\Support\Facades\Route;
 
-$menuController = new MenuController();
+$menuController = new PriceController();
 
 Route::get('menu', [$menuController, 'index']);
 

@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 use App\Enums\CountryEnum;
 use App\Enums\CountryPriceEnum;
-use App\Enums\MilkEnums;
+use App\Enums\MilkPriceEnum;
 use App\Enums\TaxEnum;
 
-class MenuController
+class PriceController
 {
     const PRICE_SAUCE = 0.5;
     const COMPLIMENT = 1;
@@ -38,7 +38,7 @@ class MenuController
         $countries = CountryEnum::from($country);
         $tax = TaxEnum::toArray()[$countries->getValue()];
         $priceCountry = CountryPriceEnum::toArray()[$countries->getValue()];
-        $priceMilk = MilkEnums::toArray()[$countries->getValue()];
+        $priceMilk = MilkPriceEnum::toArray()[$countries->getValue()];
 
         $price = $serving * ($priceCountry + $priceMilk);
 
