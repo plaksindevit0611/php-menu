@@ -24,29 +24,30 @@ class MenuController
         $compliment = $_POST['compliment'] ?? null;
         $sauce = $_POST['sauce'] ?? null;
 
+        $price = $this->calcFullPrice($country, $serving, $sauce);
+
+        if ($compliment) {
+            $price = $price + self::COMPLIMENT;
+        }
+
+        return "Result: $price $";
+    }
+
+    private function calcFullPrice(string $country, int $serving, ?string $sauce)
+    {
         $countries = CountryEnum::from($country);
         $tax = TaxEnum::toArray()[$countries->getValue()];
         $priceCountry = CountryPriceEnum::toArray()[$countries->getValue()];
         $priceMilk = MilkEnums::toArray()[$countries->getValue()];
 
-        $price = $this->calcFullPrice($priceCountry, $priceMilk, $serving);
-
-        if ($compliment) {
-            $price = $price + self::COMPLIMENT;
-        }
+        $price = $serving * ($priceCountry + $priceMilk);
 
         if ($sauce) {
             $price = $price + $serving * (self::PRICE_SAUCE);
         }
 
         $taxPercent = 1 + ($tax / 100);
-        $result = $price * $taxPercent;
 
-        return "Result: $result $";
-    }
-
-    private function calcFullPrice($priceCountry, $priceMilk, $serving)
-    {
-        return $serving * ($priceCountry + $priceMilk);
+        return $price * $taxPercent;
     }
 }
