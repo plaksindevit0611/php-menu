@@ -1,0 +1,33 @@
+.wrapper-form {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.form-menu {
+    background: #e3e3e3;
+    margin-top: 100px;
+    padding: 10px 10px 10px 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.wrapper-radio {
+    text-align: center;
+}
+
+.wrapper-result-button {
+    text-align: center;
+}
+
+.wrapper-sauce {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper-compliment {
+    display: flex;
+    justify-content: center;
+}

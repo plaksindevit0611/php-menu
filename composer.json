@@ -1,0 +1,19 @@
+{
+    "name": "php/menu",
+    "description": "Country menu",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require": {
+        "myclabs/php-enum": "^1.8",
+        "seytar/php-router": "dev-1.0.x-stable"
+    },
+    "minimum-stability": "dev",
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    }
+}
