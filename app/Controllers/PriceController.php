@@ -24,12 +24,24 @@ class PriceController
         $compliment = $_POST['compliment'] ?? null;
         $sauce = $_POST['sauce'] ?? null;
 
-        if (!$country) {
-            return 'Field must be filled!';
+        if (!CountryEnum::isValidKey($country)) {
+            return 'Error invalid country';
+        }
+
+        if (!TaxEnum::isValidKey($country)) {
+            return 'Error invalid country';
+        }
+
+        if (!CountryPriceEnum::isValidKey($country)) {
+            return 'Error invalid country';
+        }
+
+        if (!MilkPriceEnum::isValidKey($country)) {
+            return 'Error invalid country';
         }
 
         if (!$serving) {
-            return 'Field must be filled!';
+            return 'Error invalid field serving!';
         }
 
         $price = $this->calcFullPrice($country, $serving, $sauce);
@@ -57,5 +69,12 @@ class PriceController
         $taxPercent = 1 + ($tax / 100);
 
         return $price * $taxPercent;
+    }
+
+    private function isValidData($country)
+    {
+        if (!CountryEnum::isValid($country)) {
+            return 'Error invalid country';
+        }
     }
 }
