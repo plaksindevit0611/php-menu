@@ -70,11 +70,4 @@ class PriceController
 
         return $price * $taxPercent;
     }
-
-    private function isValidData($country)
-    {
-        if (!CountryEnum::isValid($country)) {
-            return 'Error invalid country';
-        }
-    }
 }
