@@ -19,7 +19,7 @@ class PriceController
 
     public function getPrice(): string
     {
-        $country = $_POST['country'];
+        $country = strtoupper($_POST['country']);
         $serving = $_POST['serving'];
         $compliment = $_POST['compliment'] ?? null;
         $sauce = $_POST['sauce'] ?? null;
