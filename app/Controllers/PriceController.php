@@ -24,6 +24,14 @@ class PriceController
         $compliment = $_POST['compliment'] ?? null;
         $sauce = $_POST['sauce'] ?? null;
 
+        if (!$country) {
+            return 'Field must be filled!';
+        }
+
+        if (!$serving) {
+            return 'Field must be filled!';
+        }
+
         $price = $this->calcFullPrice($country, $serving, $sauce);
 
         if ($compliment) {
